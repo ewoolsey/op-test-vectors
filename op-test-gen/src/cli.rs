@@ -1,3 +1,4 @@
+use anvil::cmd::NodeArgs;
 use clap::{Parser, Subcommand};
 use std::fmt::Debug;
 use std::path::PathBuf;
@@ -18,13 +19,16 @@ pub enum Commands {
         /// Path to the forge script
         #[arg(short, long, use_value_delimiter = true, value_delimiter = ',')]
         path: Vec<PathBuf>,
+
+        #[command(flatten)]
+        node_args: Option<NodeArgs>,
     },
 }
 
 impl Cli {
     pub fn run(&self) {
         match &self.command {
-            Commands::Script { path } => {
+            Commands::Script { path, .. } => {
                 println!("Running scripts: {:?}", path);
             }
         }

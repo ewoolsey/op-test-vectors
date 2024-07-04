@@ -21,9 +21,10 @@ tracing = "0.1"
 clap = { version = "4", features = ["derive"] }
 
 # Foundry
-anvil = { git = "https://github.com/foundry-rs/foundry", default-features = false }
-forge = { git = "https://github.com/foundry-rs/foundry" }
-forge-script = { git = "https://github.com/foundry-rs/foundry" }
+# TODO anvil doesn't compile with `default-features = false`
+anvil = { git = "https://github.com/foundry-rs/foundry", default-features = true }
+# forge = { git = "https://github.com/foundry-rs/foundry" }
+# forge-script = { git = "https://github.com/foundry-rs/foundry" }
 
 #Ethereum
 reth-evm-optimism = { git = "https://github.com/paradigmxyz/reth", branch = "main", features = [

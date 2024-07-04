@@ -12,3 +12,4 @@ edition = { workspace = true }
 [dependencies]
 op-test-vectors = { workspace = true }
 clap = { workspace = true }
+anvil = { workspace = true }
