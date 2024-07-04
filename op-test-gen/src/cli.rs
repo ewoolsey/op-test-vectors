@@ -18,7 +18,7 @@ pub enum Commands {
     #[command(visible_alias = "s")]
     Script {
         /// Path to the forge script
-        #[arg(short, long, use_value_delimiter = true, value_delimiter = ',')]
+        #[arg(long, use_value_delimiter = true, value_delimiter = ',')]
         path: Vec<PathBuf>,
 
         #[command(flatten)]
