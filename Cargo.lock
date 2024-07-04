@@ -4226,7 +4226,9 @@ version = "0.0.1"
 dependencies = [
  "anvil",
  "clap",
+ "color-eyre",
  "op-test-vectors",
+ "tokio",
 ]
 
 [[package]]

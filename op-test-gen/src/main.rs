@@ -1,9 +1,13 @@
 use crate::cli::Cli;
 use clap::Parser;
+use color_eyre::eyre;
 
 mod cli;
 
-fn main() {
+#[tokio::main]
+async fn main() -> eyre::Result<()> {
+    color_eyre::install()?;
     let cli = Cli::parse();
-    cli.run();
+    cli.run().await?;
+    Ok(())
 }

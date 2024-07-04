@@ -1,5 +1,6 @@
 use anvil::cmd::NodeArgs;
 use clap::{Parser, Subcommand};
+use color_eyre::eyre;
 use std::fmt::Debug;
 use std::path::PathBuf;
 
@@ -21,15 +22,17 @@ pub enum Commands {
         path: Vec<PathBuf>,
 
         #[command(flatten)]
-        node_args: Option<NodeArgs>,
+        node_args: NodeArgs,
     },
 }
 
 impl Cli {
-    pub fn run(&self) {
+    pub async fn run(&self) -> eyre::Result<()> {
         match &self.command {
-            Commands::Script { path, .. } => {
+            Commands::Script { path, node_args } => {
                 println!("Running scripts: {:?}", path);
+                node_args.clone().run().await?;
+                Ok(())
             }
         }
     }
