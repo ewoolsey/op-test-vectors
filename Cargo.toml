@@ -18,6 +18,14 @@ thiserror = "1"
 color-eyre = "0.6"
 lazy_static = "1"
 tracing = "0.1"
+clap = { version = "4", features = ["derive"] }
+
+# Foundry
+anvil = { git = "https://github.com/foundry-rs/foundry", default-features = false }
+forge = { git = "https://github.com/foundry-rs/foundry" }
+forge-script = { git = "https://github.com/foundry-rs/foundry" }
+
+#Ethereum
 reth-evm-optimism = { git = "https://github.com/paradigmxyz/reth", branch = "main", features = [
     "optimism",
 ] }
